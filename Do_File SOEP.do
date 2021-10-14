@@ -178,26 +178,6 @@ label var demographic_trends "Crude rate of natural change of population 2014"
 //Dropping
 keep gdp year migration_rate demographic_trends longterm_unemployment_rate unemployment_rate population id cntry nuts1 population_2010 population_2011 population_2012 population_2013 population_2014 population_2015 population_2016 population_2017 population_2018
 
-//Problem: Some Parts of the Data is missing, I have to manually adjust the latest. 
-//First: Add the missing data for 2018
-//GDP Data is retrieved from: https://www.statistikportal.de/de/vgrdl/ergebnisse-laenderebene/bruttoinlandsprodukt-bruttowertschoepfung/bip
-replace gdp = 511420 in 8
-replace gdp = 625161 in 16
-replace gdp = 147057 in 24
-replace gdp = 73722 in 32
-replace gdp = 34294 in 40
-replace gdp = 120332 in 48
-replace gdp = 292016 in 56
-replace gdp = 44914 in 64
-replace gdp = 296164 in 72
-replace gdp = 705066 in 80
-replace gdp = 149148 in 88
-replace gdp = 35961 in 96
-replace gdp = 126364 in 104
-replace gdp = 63504 in 112
-replace gdp = 97074 in 120
-replace gdp = 63804 in 128
-
 //I also need to fix the unemployment_rate for 2018.
 //Source used for unemployment rates: https://www.bpb.de/politik/innenpolitik/arbeitsmarktpolitik/305833/daten-und-fakten-arbeitslosigkeit
 
@@ -243,112 +223,6 @@ clear
 use "C:\Users\User\OneDrive\Alex_s Zeug\King's\Dissertation\Dissertation\Data\Regional Data and Matching\Nuts1_controlls.dta"
 merge m:m year nuts1 using "C:\Users\User\OneDrive\Alex_s Zeug\King's\Dissertation\Dissertation\Data\Regional Data and Matching\ESS_NUTS1_NEW_2.dta"
 // for whatever reason, 2018 did not work. doing it by hand now.
-
-replace unemployment_rate = 2.5 in 113
-replace unemployment_rate = 2.2 in 114
-replace unemployment_rate = 6.1 in 115
-replace unemployment_rate = 4.1 in 116
-replace unemployment_rate = 4.3 in 117
-replace unemployment_rate = 4.1 in 118
-replace unemployment_rate = 3.1 in 119
-replace unemployment_rate = 4.8 in 120
-replace unemployment_rate = 3.3 in 121
-replace unemployment_rate = 3.8 in 122
-replace unemployment_rate = 3.1 in 123
-replace unemployment_rate = 3.6 in 124
-replace unemployment_rate = 4.0 in 125
-replace unemployment_rate = 5.3 in 126
-replace unemployment_rate = 3.1 in 127
-replace unemployment_rate = 4.1 in 128
-
-replace migration_rate = 4.4 in 113
-replace migration_rate = 6.7 in 114
-replace migration_rate = 7.4 in 115
-replace migration_rate = 8.2 in 116
-replace migration_rate = 4.2 in 117
-replace migration_rate = 4.2 in 118
-replace migration_rate = 4.6 in 119
-replace migration_rate = 4.6 in 120
-replace migration_rate = 5.3 in 121
-replace migration_rate = 3.3 in 122
-replace migration_rate = 5.3 in 123
-replace migration_rate = 2.1 in 124
-replace migration_rate = 4.2 in 125
-replace migration_rate = 0.6 in 126
-replace migration_rate = 6.1 in 127
-replace migration_rate = 2 in 128
-replace migration_rate = 3 in 129
-replace migration_rate = 4.1 in 130
-replace migration_rate = 5.4 in 131
-replace migration_rate = 9 in 132
-replace migration_rate = -1.8 in 133
-replace migration_rate = 1.4 in 134
-replace migration_rate = 4.6 in 135
-replace migration_rate = 4.7 in 136
-replace migration_rate = 4.0 in 137
-replace migration_rate = 2.8 in 138
-replace migration_rate = 4 in 139
-replace migration_rate = 4.8 in 139
-replace migration_rate = 1.9 in 140
-replace migration_rate = 3.6 in 141
-replace migration_rate = 1 in 142
-replace migration_rate = 6 in 143
-replace migration_rate = 1.3 in 144
-
-
-replace demographic_trends = -2215 in 113
-replace demographic_trends = -77 in 114
-replace demographic_trends = -7193 in 114
-replace demographic_trends = 4303 in 115
-replace demographic_trends = -12803 in 116
-replace demographic_trends = -905 in 117
-replace demographic_trends = 2958 in 118
-replace demographic_trends = -6155 in 119
-replace demographic_trends = -8916 in 120
-replace demographic_trends = -22513 in 121
-replace demographic_trends = -37990 in 122
-replace demographic_trends = -10652 in 123
-replace demographic_trends = -5723 in 124
-replace demographic_trends = -20400 in 125
-replace demographic_trends = -16075 in 126
-replace demographic_trends = -10685 in 127
-replace demographic_trends = -12387 in 128
-replace demographic_trends = -2597 in 129
-replace demographic_trends = -6086 in 130
-replace demographic_trends = 4764 in 131
-replace demographic_trends = -12698 in 132
-replace demographic_trends = -555 in 133
-replace demographic_trends = 3466 in 134
-replace demographic_trends = -6607 in 135
-replace demographic_trends = -9072 in 136
-replace demographic_trends = -20970 in 137
-replace demographic_trends = -36088 in 138
-replace demographic_trends = -10446 in 139
-replace demographic_trends = -5549 in 140
-replace demographic_trends = -20455 in 141
-replace demographic_trends = -15681 in 142
-replace demographic_trends = -10307 in 143
-replace demographic_trends = -12547 in 144
-
-replace longterm_unemployment_rate = 0.8 in 113
-replace longterm_unemployment_rate = 0.7 in 114
-replace longterm_unemployment_rate = 2.6 in 115
-replace longterm_unemployment_rate = 2.2 in 116
-replace longterm_unemployment_rate = 1.5 in 117
-replace longterm_unemployment_rate = 1.9 in 118
-replace longterm_unemployment_rate = 1 in 119
-replace longterm_unemployment_rate = 2.2 in 120
-replace longterm_unemployment_rate = 1.4 in 121
-replace longterm_unemployment_rate = 1.7 in 122
-replace longterm_unemployment_rate = 1 in 123
-replace longterm_unemployment_rate = 1.7 in 124
-replace longterm_unemployment_rate = 2 in 125
-replace longterm_unemployment_rate = 3 in 126
-replace longterm_unemployment_rate = 1.1 in 127
-replace longterm_unemployment_rate = 1.9 in 128 
-
-
-save "C:\Users\User\OneDrive\Alex_s Zeug\King's\Dissertation\Dissertation\Data\Regional Data and Matching\NUTS1_DE_FINAL.dta", replace
 
 *------------------------------------------------------------------------------*
 *    		  				  												   *
